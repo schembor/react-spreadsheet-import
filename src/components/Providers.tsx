@@ -22,9 +22,9 @@ export const Providers = <T extends string>({ children, theme, rsiValues }: Prov
 
   return (
     <RsiContext.Provider value={rsiValues}>
-      <ChakraProvider>
+      <ChakraProvider disableGlobalStyle={true} resetCss={false}>
         {/* cssVarsRoot used to override RSI defaultTheme but not the rest of chakra defaultTheme */}
-        <ChakraProvider cssVarsRoot={`#${rootId}`} theme={mergedTheme}>
+        <ChakraProvider cssVarsRoot={`#${rootId}`} theme={mergedTheme} disableGlobalStyle={true} resetCss={false}>
           {children}
         </ChakraProvider>
       </ChakraProvider>
